@@ -10,7 +10,7 @@ const RANDOM_BIRD = getRandomInt(NUMBER_OF_BIRDS);
 const initialState = {
   birdImage:
     'https://cdn.wallpaperhi.com/1280x1024/20120224/black%20white%20birds%20silhouette%201280x1024%20wallpaper_www.wallpaperhi.com_10.jpg',
-  birdName: '*****',
+  birdName: '******',
   birdAudio: data[RANDOM_SET_OF_BIRDS][RANDOM_BIRD].audio,
   RANDOM_SET_OF_BIRDS,
   RANDOM_BIRD,

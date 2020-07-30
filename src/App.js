@@ -1,5 +1,6 @@
 import React from 'react';
-import HeaderContainer from './components/header/HeaderContainer.component';
+import HeaderContainer from './components/header/HeaderContainer';
+import BirdContainer from './components/bird/BirdContainer';
 
 import './assets/styles/styles.scss';
 
@@ -9,6 +10,7 @@ const App = () => {
   return (
     <>
       <HeaderContainer />
+      <BirdContainer />
     </>
   );
 };
