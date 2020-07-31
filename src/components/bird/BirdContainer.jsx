@@ -1,15 +1,17 @@
 import Bird from './Bird';
 import { connect } from 'react-redux';
 
-import updateBird from '../../redux/reducers/birdReducer';
+import { updateBird } from '../../redux/reducers/birdsReducer';
+
+import { birdsSelector } from '../../utils/selectors';
 
 const mapStateToProps = (state) => {
   return {
-    birdName: state.birdReducer.birdName,
-    birdImage: state.birdReducer.birdImage,
-    birdAudio: state.birdReducer.birdAudio,
-    RANDOM_SET_OF_BIRDS: state.birdReducer.RANDOM_SET_OF_BIRDS,
-    RANDOM_BIRD: state.birdReducer.RANDOM_BIRD,
+    birdName: birdsSelector(state).birdName,
+    birdImage: birdsSelector(state).birdImage,
+    birdAudio: birdsSelector(state).birdAudio,
+    RANDOM_SET_OF_BIRDS: birdsSelector(state).RANDOM_SET_OF_BIRDS,
+    RANDOM_BIRD: birdsSelector(state).RANDOM_BIRD,
   };
 };
 

@@ -1,6 +1,8 @@
 import Header from './Header';
 import { connect } from 'react-redux';
 
+import { scoreSelector } from '../../utils/selectors';
+
 import {
   updateScoreUp,
   updateScoreDown,
@@ -9,8 +11,8 @@ import {
 
 const mapStateToProps = (state) => {
   return {
-    score: state.scoreReducer.score,
-    level: state.scoreReducer.level,
+    score: scoreSelector(state).score,
+    level: scoreSelector(state).level,
   };
 };
 
