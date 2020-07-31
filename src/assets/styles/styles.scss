@@ -19,7 +19,7 @@ html {
 }
 body {
   background-color: #222222;
-  color: #e6e6e6;
+  color: #fff;
   padding: 30px 8vw 30px 8vw;
 }
 .top {
@@ -41,12 +41,14 @@ body {
 
   & li {
     display: inline;
+
     flex: auto;
     text-align: center;
     &.active {
       background-color: #0e7e6c;
     }
     & p {
+      margin: 8px 0;
       padding: 0 40px 0 40px;
     }
   }
@@ -80,4 +82,89 @@ body {
   }
 }
 .bird-content--audio {
+}
+
+/////////////////////////////////
+
+.player {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
+
+  .controls {
+    flex-grow: 1;
+
+    display: inline-flex;
+  }
+
+  .player__button {
+    background-color: transparent;
+
+    -webkit-transition: 0.2s;
+    transition: 0.2s;
+    width: 40px;
+    height: 40px;
+    border: 2px solid #00bc8c;
+    justify-content: center;
+    border-radius: 50%;
+    margin-right: 20px;
+    margin-bottom: 12px;
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+
+    & svg {
+      transition: 0.2s;
+      width: 18px;
+      height: 18px;
+      color: #54b1c1;
+    }
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  .bar {
+    user-select: none;
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    .bar__time {
+      font-size: 11px;
+      color: #d3d3d3;
+    }
+
+    .timers {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 8px;
+    }
+
+    .bar__progress {
+      border-radius: 5px;
+
+      margin-top: 8px;
+
+      height: 4px;
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+
+      width: 100%;
+
+      .bar__progress__knob {
+        position: relative;
+        height: 16px;
+        width: 16px;
+        border-radius: 50%;
+        background-color: grey;
+      }
+    }
+  }
 }

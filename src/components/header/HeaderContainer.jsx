@@ -1,4 +1,4 @@
-import Header from './Header.component';
+import Header from './Header';
 import { connect } from 'react-redux';
 
 import {

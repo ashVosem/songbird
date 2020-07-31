@@ -1,4 +1,4 @@
-import Bird from './Bird.component';
+import Bird from './Bird';
 import { connect } from 'react-redux';
 
 import updateBird from '../../redux/reducers/birdReducer';
