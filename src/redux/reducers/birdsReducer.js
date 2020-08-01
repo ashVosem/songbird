@@ -16,7 +16,7 @@ const initialState = {
   birdDescription: BIRD.description,
   RANDOM_SET_OF_BIRDS,
   RANDOM_BIRD,
-  isBirdPredicted: false,
+  isBirdPredicted: true,
 };
 
 const birdsReducer = (state = initialState, action) => {

@@ -1,6 +1,7 @@
 import React from 'react';
 // import birdsData from '../../assets/data/birdsData';
 import Audio from '../audioPlayer/Audio';
+import BirdTemplate from '../bird/BirdTemplate';
 
 const BirdInfo = ({
   birdName,
@@ -15,13 +16,12 @@ const BirdInfo = ({
       {isBirdPredicted ? (
         <>
           <div className="bird_info-container">
-            <img className="bird-image" src={birdImage} alt="Bird" />
-            <div className="bird-content">
-              <p className="bird-content--name">{birdName}</p>
-              <div className="bird-content--audio"></div>
-              <p className="bird-content--species">{birdSpecies}</p>
-              <Audio audio={birdAudio} />
-            </div>
+            <BirdTemplate
+              birdName={birdName}
+              birdImage={birdImage}
+              birdAudio={birdAudio}
+              birdSpecies={birdSpecies}
+            />
           </div>
           <p className="bird-content--description">{birdDescription}</p>
         </>
