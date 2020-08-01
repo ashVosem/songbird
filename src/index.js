@@ -7,6 +7,7 @@ import store from './redux/store/store';
 
 import HeaderContainer from './components/header/HeaderContainer';
 import BirdContainer from './components/bird/BirdContainer';
+import BirdInfoContainer from './components/birdInfo/BirdInfoContainer';
 import BirdsContainer from './components/birds/BirdsContainer';
 
 import './assets/styles/styles.scss';
@@ -18,7 +19,10 @@ ReactDOM.render(
     <Provider store={store}>
       <HeaderContainer />
       <BirdContainer />
-      <BirdsContainer />
+      <div className="bird_BirdsInfo_container">
+        <BirdsContainer />
+        <BirdInfoContainer />
+      </div>
     </Provider>
   </React.StrictMode>,
   document.getElementById('root')

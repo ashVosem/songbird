@@ -9,7 +9,7 @@ const Birds = ({ RANDOM_SET_OF_BIRDS, RANDOM_BIRD }) => {
           <li className={'birds--list-' + index} key={'bird' + index}>
             <p>
               <span></span>
-              {RANDOM_BIRD === bird.id ? bird.name + '+' : bird.name}
+              {RANDOM_BIRD === bird.id - 1 ? bird.name + '+' : bird.name}
             </p>
           </li>
         ))}

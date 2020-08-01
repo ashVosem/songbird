@@ -1,7 +1,5 @@
-import Bird from './Bird';
+import BirdInfo from './BirdInfo';
 import { connect } from 'react-redux';
-
-import { updateBird } from '../../redux/reducers/birdsReducer';
 
 import { birdsSelector } from '../../utils/selectors';
 
@@ -11,15 +9,13 @@ const mapStateToProps = (state) => {
     birdName: birdsSelector(state).birdName,
     birdImage: birdsSelector(state).birdImage,
     birdAudio: birdsSelector(state).birdAudio,
+    birdSpecies: birdsSelector(state).birdSpecies,
+    birdDescription: birdsSelector(state).birdDescription,
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
-  return {
-    updateBird: () => {
-      dispatch(updateBird());
-    },
-  };
+  return {};
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Bird);
+export default connect(mapStateToProps, mapDispatchToProps)(BirdInfo);

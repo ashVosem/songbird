@@ -7,13 +7,16 @@ const NUMBER_OF_BIRDS = 6;
 const RANDOM_SET_OF_BIRDS = getRandomInt(NUMBER_OF_BIRDS);
 const RANDOM_BIRD = getRandomInt(NUMBER_OF_BIRDS);
 
+const BIRD = data[RANDOM_SET_OF_BIRDS][RANDOM_BIRD];
 const initialState = {
-  birdImage:
-    'https://cdn.wallpaperhi.com/1280x1024/20120224/black%20white%20birds%20silhouette%201280x1024%20wallpaper_www.wallpaperhi.com_10.jpg',
-  birdName: '******',
-  birdAudio: data[RANDOM_SET_OF_BIRDS][RANDOM_BIRD].audio,
+  birdName: BIRD.name,
+  birdImage: BIRD.image,
+  birdAudio: BIRD.audio,
+  birdSpecies: BIRD.species,
+  birdDescription: BIRD.description,
   RANDOM_SET_OF_BIRDS,
   RANDOM_BIRD,
+  isBirdPredicted: false,
 };
 
 const birdsReducer = (state = initialState, action) => {
@@ -21,8 +24,7 @@ const birdsReducer = (state = initialState, action) => {
     case SHOW_BIRD:
       return {
         ...state,
-        birdName: data[RANDOM_SET_OF_BIRDS][RANDOM_BIRD].name,
-        birdImage: data[RANDOM_SET_OF_BIRDS][RANDOM_BIRD].image,
+        isBirdPredicted: true,
       };
     default:
       return state;

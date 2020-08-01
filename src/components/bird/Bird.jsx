@@ -1,16 +1,25 @@
 import React from 'react';
-import Audio from '../audioPlayer/Audio';
+import BirdTemplate from './BirdTemplate';
 
-const Bird = ({ birdName, birdImage, birdAudio, updateBird }) => {
+const Bird = ({ birdName, birdImage, birdAudio, isBirdPredicted }) => {
   return (
-    <div className="bird">
-      <img className="bird-image" src={birdImage} alt="Bird" />
-      <div className="bird-content">
-        <p className="bird-content--name">{birdName}</p>
-        <div className="bird-content--audio"></div>
-        <Audio audio={birdAudio} />
-      </div>
-    </div>
+    <>
+      {isBirdPredicted ? (
+        <BirdTemplate
+          birdName={birdName}
+          birdImage={birdImage}
+          birdAudio={birdAudio}
+        />
+      ) : (
+        <BirdTemplate
+          birdName={'******'}
+          birdImage={
+            'https://cdn.wallpaperhi.com/1280x1024/20120224/black%20white%20birds%20silhouette%201280x1024%20wallpaper_www.wallpaperhi.com_10.jpg'
+          }
+          birdAudio={birdAudio}
+        />
+      )}
+    </>
   );
 };
 
