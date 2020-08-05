@@ -3,11 +3,7 @@ import { connect } from 'react-redux';
 
 import { scoreSelector } from '../../utils/selectors';
 
-import {
-  updateScoreUp,
-  updateScoreDown,
-  updateLevel,
-} from '../../redux/reducers/scoreReducer';
+import { updateScore, updateLevel } from '../../redux/reducers/scoreReducer';
 
 const mapStateToProps = (state) => {
   return {
@@ -18,12 +14,10 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    updateScoreUp: () => {
-      dispatch(updateScoreUp());
+    updateScore: () => {
+      dispatch(updateScore());
     },
-    updateScoreDown: () => {
-      dispatch(updateScoreDown());
-    },
+
     updateLevel: () => {
       dispatch(updateLevel());
     },

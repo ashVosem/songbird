@@ -1,7 +1,7 @@
 import React from 'react';
 import birdsGroups from '../../assets/data/birdsGroups';
 
-const Header = ({ score, level, updateScoreUp, updateScoreDown }) => {
+const Header = ({ score, level, updateScore, updateScoreDown }) => {
   return (
     <div className="header">
       <div className="top">

@@ -8,6 +8,7 @@ const RANDOM_SET_OF_BIRDS = getRandomInt(NUMBER_OF_BIRDS);
 const RANDOM_BIRD = getRandomInt(NUMBER_OF_BIRDS);
 
 const BIRD = data[RANDOM_SET_OF_BIRDS][RANDOM_BIRD];
+
 const initialState = {
   birdName: BIRD.name,
   birdImage: BIRD.image,
@@ -16,7 +17,7 @@ const initialState = {
   birdDescription: BIRD.description,
   RANDOM_SET_OF_BIRDS,
   RANDOM_BIRD,
-  isBirdPredicted: true,
+  isBirdPredicted: false,
 };
 
 const birdsReducer = (state = initialState, action) => {
@@ -26,6 +27,7 @@ const birdsReducer = (state = initialState, action) => {
         ...state,
         isBirdPredicted: true,
       };
+
     default:
       return state;
   }

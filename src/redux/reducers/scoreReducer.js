@@ -1,5 +1,5 @@
-const UPDATE_SCORE_UP = 'UPDATE_SCORE_UP';
-const UPDATE_SCORE_DOWN = 'UPDATE_SCORE_DOWN';
+const UPDATE_SCORE = 'UPDATE_SCORE';
+
 const UPDATE_LEVEL = 'UPDATE_LEVEL';
 
 const initialState = {
@@ -9,25 +9,20 @@ const initialState = {
 
 const scoreReducer = (state = initialState, action) => {
   switch (action.type) {
-    case UPDATE_SCORE_UP: {
+    case UPDATE_SCORE: {
       return {
         ...state,
-        score: state.score + 1,
+        score: state.score + action.points,
       };
     }
-    case UPDATE_SCORE_DOWN: {
-      return {
-        ...state,
-        score: state.score - 1,
-      };
-    }
+
     default:
       return state;
   }
 };
 
-export const updateScoreUp = () => ({ type: UPDATE_SCORE_UP });
-export const updateScoreDown = () => ({ type: UPDATE_SCORE_DOWN });
+export const updateScore = (points) => ({ type: UPDATE_SCORE, points: points });
+
 export const updateLevel = () => ({ type: UPDATE_LEVEL });
 
 export default scoreReducer;

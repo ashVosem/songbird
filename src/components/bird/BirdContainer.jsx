@@ -1,8 +1,6 @@
 import Bird from './Bird';
 import { connect } from 'react-redux';
 
-import { updateBird } from '../../redux/reducers/birdsReducer';
-
 import { birdsSelector } from '../../utils/selectors';
 
 const mapStateToProps = (state) => {
@@ -15,11 +13,7 @@ const mapStateToProps = (state) => {
 };
 
 const mapDispatchToProps = (dispatch) => {
-  return {
-    updateBird: () => {
-      dispatch(updateBird());
-    },
-  };
+  return {};
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Bird);

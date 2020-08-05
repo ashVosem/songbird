@@ -1,13 +1,13 @@
 import { useState, useEffect } from 'react';
 
-const useAudioPlayer = () => {
+const useAudioPlayer = ({ playerId }) => {
   const [duration, setDuration] = useState();
   const [curTime, setCurTime] = useState();
   const [playing, setPlaying] = useState(false);
   const [clickedTime, setClickedTime] = useState();
 
   useEffect(() => {
-    const audio = document.getElementById('audio');
+    const audio = document.getElementById(`${playerId}`);
     const setAudioData = () => {
       setDuration(audio.duration);
       setCurTime(audio.currentTime);
@@ -29,7 +29,7 @@ const useAudioPlayer = () => {
       audio.removeEventListener('loadeddata', setAudioData);
       audio.removeEventListener('timeupdate', setAudioTime);
     };
-  }, [playing, clickedTime, curTime]);
+  }, [playing, clickedTime, curTime, playerId]);
 
   return {
     curTime,

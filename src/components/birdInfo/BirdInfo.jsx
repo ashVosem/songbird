@@ -1,6 +1,6 @@
 import React from 'react';
 // import birdsData from '../../assets/data/birdsData';
-import Audio from '../audioPlayer/Audio';
+
 import BirdTemplate from '../bird/BirdTemplate';
 
 const BirdInfo = ({
@@ -21,6 +21,7 @@ const BirdInfo = ({
               birdImage={birdImage}
               birdAudio={birdAudio}
               birdSpecies={birdSpecies}
+              playerId={'audio2'}
             />
           </div>
           <p className="bird-content--description">{birdDescription}</p>

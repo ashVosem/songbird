@@ -6,20 +6,20 @@ import Bar from './Bar';
 
 import useAudioPlayer from './useAudioPlayer';
 
-const Audio = ({ audio }) => {
+const Audio = ({ audio, playerId }) => {
   const {
     curTime,
     duration,
     playing,
     setPlaying,
     setClickedTime,
-  } = useAudioPlayer();
+  } = useAudioPlayer({ playerId });
 
   return (
     <div className="player">
-      <audio id="audio">
+      <audio id={playerId}>
         <source src={audio} />
-        Your browser does not support the <code>audio</code> element.
+        Something went wrong...
       </audio>
 
       <div className="controls">
