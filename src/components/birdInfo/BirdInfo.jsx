@@ -4,27 +4,27 @@ import React from 'react';
 import BirdTemplate from '../bird/BirdTemplate';
 
 const BirdInfo = ({
-  birdName,
-  birdImage,
-  birdAudio,
-  birdSpecies,
-  birdDescription,
-  isBirdPredicted,
+  clickedBirdName,
+  clickedBirdImage,
+  clickedBirdAudio,
+  clickedBirdSpecies,
+  clickedBirdDescription,
+  isBirdClicked,
 }) => {
   return (
     <div className="bird_info">
-      {isBirdPredicted ? (
+      {isBirdClicked ? (
         <>
           <div className="bird_info-container">
             <BirdTemplate
-              birdName={birdName}
-              birdImage={birdImage}
-              birdAudio={birdAudio}
-              birdSpecies={birdSpecies}
+              birdName={clickedBirdName}
+              birdImage={clickedBirdImage}
+              birdAudio={clickedBirdAudio}
+              birdSpecies={clickedBirdSpecies}
               playerId={'audio2'}
             />
           </div>
-          <p className="bird-content--description">{birdDescription}</p>
+          <p className="bird-content--description">{clickedBirdDescription}</p>
         </>
       ) : (
         <div className="bird-info-placeholder">

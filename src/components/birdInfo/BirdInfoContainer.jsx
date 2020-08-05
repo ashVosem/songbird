@@ -5,12 +5,12 @@ import { birdsSelector } from '../../utils/selectors';
 
 const mapStateToProps = (state) => {
   return {
-    isBirdPredicted: birdsSelector(state).isBirdPredicted,
-    birdName: birdsSelector(state).birdName,
-    birdImage: birdsSelector(state).birdImage,
-    birdAudio: birdsSelector(state).birdAudio,
-    birdSpecies: birdsSelector(state).birdSpecies,
-    birdDescription: birdsSelector(state).birdDescription,
+    isBirdClicked: birdsSelector(state).isBirdClicked,
+    clickedBirdName: birdsSelector(state).clickedBirdName,
+    clickedBirdImage: birdsSelector(state).clickedBirdImage,
+    clickedBirdAudio: birdsSelector(state).clickedBirdAudio,
+    clickedBirdSpecies: birdsSelector(state).clickedBirdSpecies,
+    clickedBirdDescription: birdsSelector(state).clickedBirdDescription,
   };
 };
 

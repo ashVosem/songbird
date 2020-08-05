@@ -2,7 +2,7 @@ import Birds from './Birds';
 import { connect } from 'react-redux';
 
 import { birdsSelector } from '../../utils/selectors';
-import { updateBird } from '../../redux/reducers/birdsReducer';
+import { showBird, showClickedBird } from '../../redux/reducers/birdsReducer';
 import { updateScore } from '../../redux/reducers/scoreReducer';
 
 const mapStateToProps = (state) => {
@@ -10,13 +10,17 @@ const mapStateToProps = (state) => {
     RANDOM_SET_OF_BIRDS: birdsSelector(state).RANDOM_SET_OF_BIRDS,
     RANDOM_BIRD: birdsSelector(state).RANDOM_BIRD,
     isBirdPredicted: birdsSelector(state).isBirdPredicted,
+    isBirdClicked: birdsSelector(state).isBirdClicked,
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    updateBird: () => {
-      dispatch(updateBird());
+    showBird: () => {
+      dispatch(showBird());
+    },
+    showClickedBird: (bird) => {
+      dispatch(showClickedBird(bird));
     },
     updateScore: (points) => {
       dispatch(updateScore(points));
