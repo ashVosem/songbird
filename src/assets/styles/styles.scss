@@ -296,7 +296,7 @@ body {
     & > p {
       margin: 2px 0;
       & > span {
-        background-color: #444;
+        // background-color: #444;
         display: inline-block;
         width: 10px;
         height: 10px;
@@ -307,4 +307,13 @@ body {
       }
     }
   }
+}
+.predicted {
+  background-color: #00bc8c;
+}
+.not_predicted {
+  background-color: #d62c1a;
+}
+.default {
+  background-color: #444;
 }
