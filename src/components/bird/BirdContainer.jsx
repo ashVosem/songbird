@@ -6,6 +6,8 @@ import { birdsSelector } from '../../utils/selectors';
 const mapStateToProps = (state) => {
   return {
     isBirdPredicted: birdsSelector(state).isBirdPredicted,
+    isAudioShouldBeStopped: birdsSelector(state).isAudioShouldBeStopped,
+
     birdName: birdsSelector(state).birdName,
     birdImage: birdsSelector(state).birdImage,
     birdAudio: birdsSelector(state).birdAudio,

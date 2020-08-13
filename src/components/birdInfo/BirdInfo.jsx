@@ -1,5 +1,4 @@
 import React from 'react';
-// import birdsData from '../../assets/data/birdsData';
 
 import BirdTemplate from '../bird/BirdTemplate';
 
@@ -10,6 +9,8 @@ const BirdInfo = ({
   clickedBirdSpecies,
   clickedBirdDescription,
   isBirdClicked,
+  isBirdPredicted,
+  isAudioShouldBeStopped,
 }) => {
   return (
     <div className="bird_info">
@@ -21,7 +22,8 @@ const BirdInfo = ({
               birdImage={clickedBirdImage}
               birdAudio={clickedBirdAudio}
               birdSpecies={clickedBirdSpecies}
-              playerId={'audio2'}
+              isBirdPredicted={isBirdPredicted}
+              isAudioShouldBeStopped={isAudioShouldBeStopped}
             />
           </div>
           <p className="bird-content--description">{clickedBirdDescription}</p>

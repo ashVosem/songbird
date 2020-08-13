@@ -2,26 +2,17 @@ import Header from './Header';
 import { connect } from 'react-redux';
 
 import { scoreSelector } from '../../utils/selectors';
-
-import { updateScore, updateLevel } from '../../redux/reducers/scoreReducer';
+import { birdsSelector } from '../../utils/selectors';
 
 const mapStateToProps = (state) => {
   return {
     score: scoreSelector(state).score,
-    level: scoreSelector(state).level,
+    SET_OF_BIRDS: birdsSelector(state).SET_OF_BIRDS,
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
-  return {
-    updateScore: () => {
-      dispatch(updateScore());
-    },
-
-    updateLevel: () => {
-      dispatch(updateLevel());
-    },
-  };
+  return {};
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Header);

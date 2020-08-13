@@ -5,20 +5,25 @@ import Pause from './Pause';
 import Bar from './Bar';
 
 import useAudioPlayer from './useAudioPlayer';
+import { useEffect } from 'react';
 
-const Audio = ({ audio, playerId }) => {
+const Audio = ({ audioUrl, isAudioShouldBeStopped }) => {
   const {
     curTime,
     duration,
     playing,
     setPlaying,
     setClickedTime,
-  } = useAudioPlayer({ playerId });
+  } = useAudioPlayer({ audioUrl });
+
+  useEffect(() => {
+    isAudioShouldBeStopped && setPlaying(false);
+  }, [isAudioShouldBeStopped, setPlaying]);
 
   return (
     <div className="player">
-      <audio id={playerId}>
-        <source src={audio} />
+      <audio>
+        <source src={audioUrl} />
         Something went wrong...
       </audio>
 

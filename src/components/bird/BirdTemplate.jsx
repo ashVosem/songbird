@@ -6,7 +6,7 @@ const BirdTemplate = ({
   birdName,
   birdAudio,
   birdSpecies,
-  playerId,
+  isAudioShouldBeStopped,
 }) => {
   return (
     <>
@@ -15,7 +15,10 @@ const BirdTemplate = ({
         <p className="bird-content--name">{birdName}</p>
         {birdSpecies && <p className="bird-content--species">{birdSpecies}</p>}
         <div className="bird-content--audio"></div>
-        <Audio audio={birdAudio} playerId={playerId} />
+        <Audio
+          audioUrl={birdAudio}
+          isAudioShouldBeStopped={isAudioShouldBeStopped}
+        />
       </div>
     </>
   );

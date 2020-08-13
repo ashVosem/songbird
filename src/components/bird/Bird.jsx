@@ -1,7 +1,13 @@
 import React from 'react';
 import BirdTemplate from './BirdTemplate';
 
-const Bird = ({ birdName, birdImage, birdAudio, isBirdPredicted, isError }) => {
+const Bird = ({
+  birdName,
+  birdImage,
+  birdAudio,
+  isBirdPredicted,
+  isAudioShouldBeStopped,
+}) => {
   return (
     <>
       {isBirdPredicted ? (
@@ -10,7 +16,7 @@ const Bird = ({ birdName, birdImage, birdAudio, isBirdPredicted, isError }) => {
             birdName={birdName}
             birdImage={birdImage}
             birdAudio={birdAudio}
-            playerId={'audio1'}
+            isAudioShouldBeStopped={isAudioShouldBeStopped}
           />
         </div>
       ) : (
@@ -21,7 +27,7 @@ const Bird = ({ birdName, birdImage, birdAudio, isBirdPredicted, isError }) => {
               'https://cdn.wallpaperhi.com/1280x1024/20120224/black%20white%20birds%20silhouette%201280x1024%20wallpaper_www.wallpaperhi.com_10.jpg'
             }
             birdAudio={birdAudio}
-            playerId={'audio1'}
+            isAudioShouldBeStopped={isAudioShouldBeStopped}
           />
         </div>
       )}

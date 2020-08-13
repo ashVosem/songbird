@@ -12,6 +12,8 @@ import BirdsContainer from './components/birds/BirdsContainer';
 
 import './assets/styles/styles.scss';
 
+import NextLevelContainer from './components/nextLevel/NextLevelContainer';
+
 require('normalize-css');
 
 ReactDOM.render(
@@ -23,6 +25,7 @@ ReactDOM.render(
         <BirdsContainer />
         <BirdInfoContainer />
       </div>
+      <NextLevelContainer />
     </Provider>
   </React.StrictMode>,
   document.getElementById('root')

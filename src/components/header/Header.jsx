@@ -1,7 +1,7 @@
 import React from 'react';
 import birdsGroups from '../../assets/data/birdsGroups';
 
-const Header = ({ score, level }) => {
+const Header = ({ score, SET_OF_BIRDS }) => {
   return (
     <div className="header">
       <div className="top">
@@ -10,7 +10,7 @@ const Header = ({ score, level }) => {
       </div>
       <ul className="bottom">
         {birdsGroups.map((group, index) =>
-          index !== 0 ? (
+          index !== SET_OF_BIRDS ? (
             <li className={'level_' + index} key={'level-' + index}>
               <p>{group}</p>
             </li>
