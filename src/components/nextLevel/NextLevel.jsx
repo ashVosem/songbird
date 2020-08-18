@@ -5,12 +5,13 @@ const NextLevel = ({
   NUMBER_OF_BIRDS,
   updateLevel,
   resetLevel,
-  pauseAudio,
+  isBirdPredicted,
 }) => {
   return (
     <>
       <button
-        className="next-level"
+        disabled={!isBirdPredicted}
+        className={isBirdPredicted ? 'next-level' : 'next-level disabled'}
         onClick={() => {
           SET_OF_BIRDS >= NUMBER_OF_BIRDS - 1 ? resetLevel() : updateLevel();
         }}

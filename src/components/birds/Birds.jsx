@@ -13,7 +13,6 @@ const Birds = ({
   isBirdPredicted,
   isBirdClicked,
   showClickedBird,
-  pauseAudio,
 }) => {
   const dotColorClasses = {
     0: 'default',
@@ -42,7 +41,6 @@ const Birds = ({
               const error = new Audio(errorSound);
 
               showClickedBird(index);
-              pauseAudio(false);
 
               if (!isBirdPredicted) {
                 setPoints(points > 0 ? points - 1 : 0);

@@ -5,7 +5,6 @@ const SHOW_BIRD = 'SHOW_BIRD';
 const SHOW_CLICKED_BIRD = 'SHOW_CLICKED_BIRD';
 const UPDATE_LEVEL = 'UPDATE_LEVEL';
 const RESET_LEVEL = 'RESET_LEVEL';
-const PAUSE_AUDIO = 'PAUSE_AUDIO';
 const NUMBER_OF_BIRDS = 6;
 
 const SET_OF_BIRDS = 0;
@@ -30,7 +29,6 @@ const initialState = {
 
   isBirdClicked: false,
   isBirdPredicted: false,
-  isAudioShouldBeStopped: false,
 };
 
 const birdsReducer = (state = initialState, action) => {
@@ -39,18 +37,17 @@ const birdsReducer = (state = initialState, action) => {
       return {
         ...state,
         isBirdPredicted: true,
-        isAudioShouldBeStopped: true,
       };
     case SHOW_CLICKED_BIRD:
       const CLICKED_BIRDS = setBirds(state.SET_OF_BIRDS, action.bird);
       return {
         ...state,
+        isBirdClicked: true,
         clickedBirdName: CLICKED_BIRDS.name,
         clickedBirdImage: CLICKED_BIRDS.image,
         clickedBirdAudio: CLICKED_BIRDS.audio,
         clickedBirdSpecies: CLICKED_BIRDS.species,
         clickedBirdDescription: CLICKED_BIRDS.description,
-        isBirdClicked: true,
       };
     case UPDATE_LEVEL: {
       const UPDATED_BIRD = getRandomInt(NUMBER_OF_BIRDS);
@@ -67,7 +64,6 @@ const birdsReducer = (state = initialState, action) => {
 
         SET_OF_BIRDS: state.SET_OF_BIRDS + 1,
         RANDOM_BIRD: UPDATED_BIRD,
-        isAudioShouldBeStopped: true,
       };
     }
     case RESET_LEVEL:
@@ -85,13 +81,8 @@ const birdsReducer = (state = initialState, action) => {
 
         SET_OF_BIRDS: 0,
         RANDOM_BIRD: UPDATED_BIRD,
-        isAudioShouldBeStopped: true,
       };
-    case PAUSE_AUDIO:
-      return {
-        ...state,
-        // isAudioShouldBeStopped: true,
-      };
+
     default:
       return state;
   }
@@ -100,7 +91,7 @@ const birdsReducer = (state = initialState, action) => {
 export const updateLevel = () => ({ type: UPDATE_LEVEL });
 export const resetLevel = () => ({ type: RESET_LEVEL });
 export const showBird = () => ({ type: SHOW_BIRD });
-export const pauseAudio = () => ({ type: PAUSE_AUDIO });
+
 export const showClickedBird = (bird) => ({
   type: SHOW_CLICKED_BIRD,
   bird: bird,

@@ -2,11 +2,7 @@ import Birds from './Birds';
 import { connect } from 'react-redux';
 
 import { birdsSelector } from '../../utils/selectors';
-import {
-  showBird,
-  showClickedBird,
-  pauseAudio,
-} from '../../redux/reducers/birdsReducer';
+import { showBird, showClickedBird } from '../../redux/reducers/birdsReducer';
 import { updateScore } from '../../redux/reducers/scoreReducer';
 
 const mapStateToProps = (state) => {
@@ -28,9 +24,6 @@ const mapDispatchToProps = (dispatch) => {
     },
     updateScore: (points) => {
       dispatch(updateScore(points));
-    },
-    pauseAudio: () => {
-      dispatch(pauseAudio());
     },
   };
 };

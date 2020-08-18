@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { scoreSelector } from '../../utils/selectors';
 import { birdsSelector } from '../../utils/selectors';
 
-import { updateLevel, pauseAudio } from '../../redux/reducers/birdsReducer';
+import { updateLevel } from '../../redux/reducers/birdsReducer';
 import { resetLevel } from '../../redux/reducers/birdsReducer';
 
 const mapStateToProps = (state) => {
@@ -12,6 +12,7 @@ const mapStateToProps = (state) => {
     level: scoreSelector(state).level,
     SET_OF_BIRDS: birdsSelector(state).SET_OF_BIRDS,
     NUMBER_OF_BIRDS: birdsSelector(state).NUMBER_OF_BIRDS,
+    isBirdPredicted: birdsSelector(state).isBirdPredicted,
   };
 };
 
@@ -22,9 +23,6 @@ const mapDispatchToProps = (dispatch) => {
     },
     resetLevel: () => {
       dispatch(resetLevel());
-    },
-    pauseAudio: () => {
-      dispatch(pauseAudio());
     },
   };
 };
