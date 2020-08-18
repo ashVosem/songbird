@@ -4,6 +4,7 @@ html {
     'Segoe UI Emoji', 'Segoe UI Symbol';
   --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas,
     'Liberation Mono', 'Courier New', monospace;
+  cursor: default;
 }
 
 ul {
@@ -92,6 +93,7 @@ body {
     width: 50vw;
     height: 40vw;
     margin: 0 auto;
+    margin-bottom: 0.5rem;
   }
 }
 
@@ -171,12 +173,12 @@ body {
       width: 200px;
       height: 155px;
       @media screen and (max-width: 1200px) {
-        margin: 0 auto 20px auto;
+        margin: 0 auto 10px auto;
+        flex-basis: auto;
       }
       @media screen and (max-width: 700px) {
         width: 50vw;
         height: 40vw;
-        margin: 0 auto 20px auto;
       }
     }
 

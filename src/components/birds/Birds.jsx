@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import birdsData from '../../assets/data/birdsData';
 
+import setDotColorsClassesObj from '../../utils/helpers/setDotColorsClassesObj';
+
 import winSound from '../../assets/audio/win.mp3';
 import errorSound from '../../assets/audio/error.mp3';
 import { useEffect } from 'react';
@@ -8,26 +10,23 @@ import { useEffect } from 'react';
 const Birds = ({
   SET_OF_BIRDS,
   RANDOM_BIRD,
+  NUMBER_OF_BIRDS,
   showBird,
   updateScore,
   isBirdPredicted,
   isBirdClicked,
   showClickedBird,
 }) => {
-  const dotColorClasses = {
-    0: 'default',
-    1: 'default',
-    2: 'default',
-    3: 'default',
-    4: 'default',
-    5: 'default',
-  };
+  const dotColorClasses = setDotColorsClassesObj(NUMBER_OF_BIRDS);
 
   const [points, setPoints] = useState(birdsData[SET_OF_BIRDS].length - 1);
   const [dotColors, setDotColors] = useState(dotColorClasses);
 
   useEffect(() => {
-    !isBirdClicked && setDotColors(dotColorClasses);
+    if (!isBirdClicked) {
+      setDotColors(dotColorClasses);
+      setPoints(birdsData[SET_OF_BIRDS].length - 1);
+    }
     // eslint-disable-next-line
   }, [isBirdClicked]);
 

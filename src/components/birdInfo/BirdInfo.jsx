@@ -10,7 +10,6 @@ const BirdInfo = ({
   clickedBirdDescription,
   isBirdClicked,
   isBirdPredicted,
-  isAudioShouldBeStopped,
 }) => {
   return (
     <div className="bird_info">
@@ -23,7 +22,6 @@ const BirdInfo = ({
               birdAudio={clickedBirdAudio}
               birdSpecies={clickedBirdSpecies}
               isBirdPredicted={isBirdPredicted}
-              isAudioShouldBeStopped={isAudioShouldBeStopped}
             />
           </div>
           <p className="bird-content--description">{clickedBirdDescription}</p>

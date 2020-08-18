@@ -12,7 +12,6 @@ const scoreReducer = (state = initialState, action) => {
         score: state.score + action.points,
       };
     }
-
     default:
       return state;
   }

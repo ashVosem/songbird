@@ -7,7 +7,6 @@ const mapStateToProps = (state) => {
   return {
     isBirdClicked: birdsSelector(state).isBirdClicked,
     isBirdPredicted: birdsSelector(state).isBirdPredicted,
-    isAudioShouldBeStopped: birdsSelector(state).isAudioShouldBeStopped,
     clickedBirdName: birdsSelector(state).clickedBirdName,
     clickedBirdImage: birdsSelector(state).clickedBirdImage,
     clickedBirdAudio: birdsSelector(state).clickedBirdAudio,
@@ -16,8 +15,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-const mapDispatchToProps = (dispatch) => {
-  return {};
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(BirdInfo);
+export default connect(mapStateToProps)(BirdInfo);

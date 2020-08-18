@@ -9,6 +9,7 @@ const mapStateToProps = (state) => {
   return {
     SET_OF_BIRDS: birdsSelector(state).SET_OF_BIRDS,
     RANDOM_BIRD: birdsSelector(state).RANDOM_BIRD,
+    NUMBER_OF_BIRDS: birdsSelector(state).NUMBER_OF_BIRDS,
     isBirdPredicted: birdsSelector(state).isBirdPredicted,
     isBirdClicked: birdsSelector(state).isBirdClicked,
   };

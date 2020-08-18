@@ -1,5 +1,5 @@
 import getRandomInt from '../../utils/helpers/randomizer';
-import setBirds from '../../utils/helpers/setBirds';
+import data from '../../assets/data/birdsData';
 
 const SHOW_BIRD = 'SHOW_BIRD';
 const SHOW_CLICKED_BIRD = 'SHOW_CLICKED_BIRD';
@@ -10,7 +10,7 @@ const NUMBER_OF_BIRDS = 6;
 const SET_OF_BIRDS = 0;
 const RANDOM_BIRD = getRandomInt(NUMBER_OF_BIRDS);
 
-const BIRDS = setBirds(SET_OF_BIRDS, RANDOM_BIRD);
+const BIRDS = data[SET_OF_BIRDS][RANDOM_BIRD];
 
 const initialState = {
   birdName: BIRDS.name,
@@ -39,7 +39,7 @@ const birdsReducer = (state = initialState, action) => {
         isBirdPredicted: true,
       };
     case SHOW_CLICKED_BIRD:
-      const CLICKED_BIRDS = setBirds(state.SET_OF_BIRDS, action.bird);
+      const CLICKED_BIRDS = data[state.SET_OF_BIRDS][action.bird];
       return {
         ...state,
         isBirdClicked: true,
@@ -51,7 +51,7 @@ const birdsReducer = (state = initialState, action) => {
       };
     case UPDATE_LEVEL: {
       const UPDATED_BIRD = getRandomInt(NUMBER_OF_BIRDS);
-      const NEXT_LEVEL_BIRDS = setBirds(state.SET_OF_BIRDS + 1, UPDATED_BIRD);
+      const NEXT_LEVEL_BIRDS = data[state.SET_OF_BIRDS + 1][UPDATED_BIRD];
 
       return {
         ...state,
@@ -68,7 +68,7 @@ const birdsReducer = (state = initialState, action) => {
     }
     case RESET_LEVEL:
       const UPDATED_BIRD = getRandomInt(NUMBER_OF_BIRDS);
-      const RESET_LEVEL_BIRDS = setBirds(0, UPDATED_BIRD);
+      const RESET_LEVEL_BIRDS = data[0][UPDATED_BIRD];
 
       return {
         ...state,
