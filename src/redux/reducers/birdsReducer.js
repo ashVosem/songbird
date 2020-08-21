@@ -52,7 +52,6 @@ const birdsReducer = (state = initialState, action) => {
     case UPDATE_LEVEL: {
       const UPDATED_BIRD = getRandomInt(NUMBER_OF_BIRDS);
       const NEXT_LEVEL_BIRDS = data[state.SET_OF_BIRDS + 1][UPDATED_BIRD];
-
       return {
         ...state,
         isBirdPredicted: false,
@@ -69,7 +68,6 @@ const birdsReducer = (state = initialState, action) => {
     case RESET_LEVEL:
       const UPDATED_BIRD = getRandomInt(NUMBER_OF_BIRDS);
       const RESET_LEVEL_BIRDS = data[0][UPDATED_BIRD];
-
       return {
         ...state,
         isBirdPredicted: false,
@@ -82,7 +80,6 @@ const birdsReducer = (state = initialState, action) => {
         SET_OF_BIRDS: 0,
         RANDOM_BIRD: UPDATED_BIRD,
       };
-
     default:
       return state;
   }

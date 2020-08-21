@@ -28,5 +28,4 @@ const Bird = ({ birdName, birdImage, birdAudio, isBirdPredicted }) => {
     </>
   );
 };
-
 export default Bird;

@@ -34,5 +34,4 @@ const BirdInfo = ({
     </div>
   );
 };
-
 export default BirdInfo;

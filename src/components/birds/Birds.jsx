@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
 import birdsData from '../../assets/data/birdsData';
 
 import setDotColorsClassesObj from '../../utils/helpers/setDotColorsClassesObj';
@@ -17,10 +17,43 @@ const Birds = ({
   isBirdClicked,
   showClickedBird,
 }) => {
+  console.log('a');
   const dotColorClasses = setDotColorsClassesObj(NUMBER_OF_BIRDS);
+
+  const [win] = useState(new Audio(winSound));
+  const [error] = useState(new Audio(errorSound));
 
   const [points, setPoints] = useState(birdsData[SET_OF_BIRDS].length - 1);
   const [dotColors, setDotColors] = useState(dotColorClasses);
+
+  const clickActionCallback = useCallback(
+    (index) => {
+      showClickedBird(index);
+      if (!isBirdPredicted) {
+        setPoints(points > 0 ? points - 1 : 0);
+        if (RANDOM_BIRD === index) {
+          showBird();
+          updateScore(points);
+          setDotColors({ ...dotColors, [index]: 'predicted' });
+          win.play();
+        } else {
+          setDotColors({ ...dotColors, [index]: 'not_predicted' });
+          error.play();
+        }
+      }
+    },
+    [
+      RANDOM_BIRD,
+      dotColors,
+      error,
+      isBirdPredicted,
+      points,
+      showBird,
+      showClickedBird,
+      updateScore,
+      win,
+    ]
+  );
 
   useEffect(() => {
     if (!isBirdClicked) {
@@ -36,30 +69,16 @@ const Birds = ({
         {birdsData[SET_OF_BIRDS].map((bird, index) => (
           <li
             onClick={() => {
-              const win = new Audio(winSound);
-              const error = new Audio(errorSound);
-
-              showClickedBird(index);
-
-              if (!isBirdPredicted) {
-                setPoints(points > 0 ? points - 1 : 0);
-                if (RANDOM_BIRD === index) {
-                  showBird();
-                  updateScore(points);
-                  setDotColors({ ...dotColors, [index]: 'predicted' });
-                  win.play();
-                } else {
-                  setDotColors({ ...dotColors, [index]: 'not_predicted' });
-                  error.play();
-                }
-              }
+              clickActionCallback(index);
             }}
             className={'birds--list-' + index}
             key={'bird' + index}
           >
             <p>
               <span className={dotColors[index]}></span>
-              {RANDOM_BIRD === bird.id - 1 ? bird.name + '+' : bird.name}
+              {bird.name}
+              {RANDOM_BIRD === bird.id - 1 &&
+                console.log('answer:' + bird.name)}
             </p>
           </li>
         ))}
@@ -67,5 +86,4 @@ const Birds = ({
     </div>
   );
 };
-
 export default Birds;

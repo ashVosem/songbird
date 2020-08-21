@@ -4,8 +4,8 @@ import { connect } from 'react-redux';
 import { scoreSelector } from '../../utils/selectors';
 import { birdsSelector } from '../../utils/selectors';
 
-import { updateLevel } from '../../redux/reducers/birdsReducer';
-import { resetLevel } from '../../redux/reducers/birdsReducer';
+import { updateLevel, resetLevel } from '../../redux/reducers/birdsReducer';
+import { showNotification } from '../../redux/reducers/notificationReducer';
 
 const mapStateToProps = (state) => {
   return {
@@ -23,6 +23,9 @@ const mapDispatchToProps = (dispatch) => {
     },
     resetLevel: () => {
       dispatch(resetLevel());
+    },
+    showNotification: () => {
+      dispatch(showNotification());
     },
   };
 };

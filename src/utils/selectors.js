@@ -4,3 +4,6 @@ export const birdsSelector = (state) => {
 export const scoreSelector = (state) => {
   return state.scoreReducer;
 };
+export const notificationSelector = (state) => {
+  return state.notificationReducer;
+};
