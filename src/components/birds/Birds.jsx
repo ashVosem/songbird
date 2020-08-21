@@ -17,7 +17,6 @@ const Birds = ({
   isBirdClicked,
   showClickedBird,
 }) => {
-  console.log('a');
   const dotColorClasses = setDotColorsClassesObj(NUMBER_OF_BIRDS);
 
   const [win] = useState(new Audio(winSound));

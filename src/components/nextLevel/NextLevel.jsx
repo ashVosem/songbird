@@ -1,5 +1,4 @@
-import React from 'react';
-import { useCallback } from 'react';
+import React, { useCallback } from 'react';
 
 const NextLevel = ({
   SET_OF_BIRDS,

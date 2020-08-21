@@ -7,7 +7,7 @@ import Bar from './Bar';
 import useAudioPlayer from './useAudioPlayer';
 import { useEffect } from 'react';
 
-const Audio = ({ audioUrl, isBirdPredicted }) => {
+const Audio = ({ setErr, audioUrl, isBirdPredicted }) => {
   const {
     curTime,
     duration,
@@ -15,16 +15,17 @@ const Audio = ({ audioUrl, isBirdPredicted }) => {
     setPlaying,
     setClickedTime,
     audio,
-  } = useAudioPlayer({ audioUrl });
+  } = useAudioPlayer({ setErr, audioUrl });
 
   useEffect(() => {
     isBirdPredicted && setPlaying(false);
 
     return () => {
       setPlaying(false);
+
       audio.pause();
     };
-  }, [audio, isBirdPredicted, setPlaying]);
+  }, [audio, isBirdPredicted, setErr, setPlaying]);
 
   return (
     <div className="player">
